@@ -12,7 +12,7 @@ cython_debug/
 
 # data
 *.zip
- *.csv
+*.csv
 *.db
 *.graphml
 # *.pickle
@@ -27,6 +27,6 @@ cython_debug/
 .vscode
 
 # project
-.env
+.venv/
 
 # environment (ignore one, use the other)
