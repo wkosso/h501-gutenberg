@@ -1,6 +1,7 @@
 
 import pandas as pd
 from tt_gutenberg.data import load_authors, load_metadata, load_languages
+from tt_gutenberg.transform import get_data
 
 
 def list_authors(by_languages=True, alias=True):
@@ -9,11 +10,7 @@ def list_authors(by_languages=True, alias=True):
     metadata = load_metadata()
     languages = load_languages()
 
-    # Merge authors with books (metadata) using the author ID
-    books = pd.merge(authors, metadata, on='gutenberg_author_id')
-
-    # Merge that with languages using the book ID
-    full = pd.merge(books, languages, on='gutenberg_id')
+    full = get_data()
 
     # Choose which column to rank: alias or the author name
     name_col = 'alias' if alias else 'author_x'
